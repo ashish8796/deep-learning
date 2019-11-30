@@ -1,8 +1,8 @@
 import pandas as pd 
 # TODO: Set weight1, weight2, and bias
-weight1 = 0.0
-weight2 = 0.0
-bias = 0.0
+weight1 = 4.0
+weight2 = 3.0
+bias = -6.0
 
 
 # DON'T CHANGE ANYTHING BELOW
@@ -13,11 +13,10 @@ outputs = []
 
 # Generate and check output
 for test_input, correct_output in zip(test_inputs, correct_outputs):
-    linear_combination = weight1*test_input[0] + weight2*test_input[1] - bias
+    linear_combination = weight1*test_input[0] + weight2*test_input[1] + bias
     output = int(linear_combination >= 0)
     is_correct_string = 'Yes' if output == correct_output else 'No'
     outputs.append([test_input[0],test_input[1],linear_combination,output,is_correct_string])
-
 #print outputs
 num_wrong = len([output[4] for output in outputs if output[4] == "No"])
 output_frame = pd.DataFrame(outputs, columns=['input 1', 'input 2','Linear Combination', 'Activation Output', "Is Correct"])
